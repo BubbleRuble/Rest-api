@@ -1,16 +1,6 @@
 import { useState, useEffect } from 'react';
-
-const useLocalStorage = (key, defaultValue) => {
-  const [state, setState] = useState(
-    () => JSON.parse(window.localStorage.getItem(key)) ?? defaultValue,
-  );
-
-  useEffect(() => {
-    window.localStorage.setItem(key, JSON.stringify(state))
-  },[key, state])
-
-  return [state, setState];
-};
+import useLocalStorage from '../../hooks/useLocalStorage';
+import './SignupForm.css'
 
 export default function SignupForm() {
   const [email, setEmail] = useLocalStorage('email', '');
@@ -45,6 +35,8 @@ export default function SignupForm() {
           value={email}
         />
       </label>
+
+      <br />
 
       <label>
         <span>Paswword</span>

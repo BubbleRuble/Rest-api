@@ -10,6 +10,8 @@ export default function ColorPicker ({options}) {
     : styles.option
     };
 
+    const { label } = options[activeOptionIdx]
+
   return (
       <div className={styles.ColorPicker}>
         <h2 className={styles.ColorPicker__title}>ColorPicker</h2>
